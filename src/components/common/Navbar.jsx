@@ -1,10 +1,84 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { BsRssFill, BsSteam, BsTwitch, BsYoutube } from "react-icons/bs";
+import { MdClose } from "react-icons/md";
 
 const Navbar = () => {
-  return <NavbarWrapper></NavbarWrapper>;
+  return (
+    <NavbarWrapper className="d-flex align-items-center">
+      <div className="container w-100">
+        <div className="navbar-content">
+          <div className="brand-and-toggler d-flex align-items-center justify-content-between">
+            <Link
+              to="/"
+              className="navbar-brand text-white text-uppercase no-wrap"
+            >
+              Rawg <span>games</span>
+            </Link>
+            <button type="button" className="navbar-show-btn text-white">
+              <HiOutlineMenuAlt3 size={25} />
+            </button>
+          </div>
+          <div className={`nabvar-collapse`}>
+            <button type="button" className="navbar-hide-btn">
+              <MdClose size={25} />
+            </button>
+            <ul className="navbar-var">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/creators" className="nav-link">
+                  Creators
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/stores" className="nav-link">
+                  Stores
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/games" className="nav-link">
+                  Games
+                </Link>
+              </li>
+            </ul>
+            <ul className="connect-list d-flex justify-content-center align-items-center mt-5 flex-wrap">
+              <li className="text-uppercase fw-7 w-100 connect-text mb-2">
+                Connect
+              </li>
+              <li className="connect-item">
+                <Link to="/" className="connect-link">
+                  <BsRssFill />
+                </Link>
+              </li>
+              <li className="connect-item">
+                <Link to="/" className="connect-link">
+                  <BsSteam size={18} />
+                </Link>
+              </li>
+              <li className="connect-item">
+                <Link to="/" className="connect-link">
+                  <BsTwitch size={18} />
+                </Link>
+              </li>
+              <li className="connect-item">
+                <Link to="/" className="connect-link">
+                  <BsYoutube size={19} />
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </NavbarWrapper>
+  );
 };
 
-export default NavbarWrapper;
+export default Navbar;
 
 const NavbarWrapper = styled.div`
   min-height: 78px;
