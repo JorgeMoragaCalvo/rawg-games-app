@@ -9,5 +9,12 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        document.body.classList.add("resize-animation-stopper");
+        clearTimeout(resizeTimer);
+      });
+    </script>
   </body>
 </html>
