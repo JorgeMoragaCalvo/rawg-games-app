@@ -3,8 +3,18 @@ import styled from "styled-components";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { BsRssFill, BsSteam, BsTwitch, BsYoutube } from "react-icons/bs";
 import { MdClose } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectSidebarStatus,
+  setSidebarOff,
+  setSidebarOn,
+} from "../../redux/store/sideBarSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const sidebarStatus = useSelector(selectSidebarStatus);
+  // console.log(sidebarStatus);
+
   return (
     <NavbarWrapper className="d-flex align-items-center">
       <div className="container w-100">
@@ -16,12 +26,20 @@ const Navbar = () => {
             >
               Rawg <span>games</span>
             </Link>
-            <button type="button" className="navbar-show-btn text-white">
+            <button
+              type="button"
+              className="navbar-show-btn text-white"
+              onClick={() => dispatch(setSidebarOn())}
+            >
               <HiOutlineMenuAlt3 size={25} />
             </button>
           </div>
-          <div className={`nabvar-collapse`}>
-            <button type="button" className="navbar-hide-btn">
+          <div className={`nabvar-collapse ${sidebarStatus ? "show" : " "}`}>
+            <button
+              type="button"
+              className="navbar-hide-btn"
+              onClick={() => dispatch(setSidebarOff())}
+            >
               <MdClose size={25} />
             </button>
             <ul className="navbar-var">

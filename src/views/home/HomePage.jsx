@@ -1,7 +1,20 @@
 import styled from "styled-components";
+import { Banner } from "../../components/common/index";
+import Title from "../../components/common/Title";
 
 const HomePage = () => {
-  return <HomeWrapper></HomeWrapper>;
+  return (
+    <HomeWrapper>
+      <Banner />
+      <section className="section sc-popular">
+        <div className="container">
+          <Title
+            titleName={{ firstText: "top popular", secondText: "games" }}
+          />
+        </div>
+      </section>
+    </HomeWrapper>
+  );
 };
 
 export default HomePage;
